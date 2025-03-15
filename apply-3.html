@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Review - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f2f7ff;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .review-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .summary-column {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .review-section {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-section h3 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .btn-edit {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .btn-edit:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">JobQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="jobs.html">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="salaries.html">Salaries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interviews.html">Interviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="career-advice.html">Career Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="post-job.html">Post Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apply-1.html">Employee Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registerting-employer-1.html">Employer Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <h1>Apply - Review Your Application</h1>
+        <div class="content-section">
+            <div class="two-column">
+                <div class="review-column">
+                    <h2>Review Your Details</h2>
+                    <p class="form-text text-muted">Check your information before submitting your application.</p>
+                    <div class="review-section" id="locationReview">
+                        <h3>Location <button class="btn-edit" data-section="location">Edit</button></h3>
+                        <p>
+                            <strong>City:</strong> <span id="cityReview"></span><br>
+                            <strong>State/Province:</strong> <span id="stateReview"></span><br>
+                            <strong>Postal Code:</strong> <span id="postalReview"></span><br>
+                            <strong>Country:</strong> <span id="countryReview"></span>
+                        </p>
+                    </div>
+                    <div class="review-section" id="resumeReview">
+                        <h3>Resume <button class="btn-edit" data-section="resume">Edit</button></h3>
+                        <p>
+                            <strong>File:</strong> <span id="resumeFileReview"></span><br>
+                            <strong>Text:</strong> <span id="resumeTextReview"></span>
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary">Back</button>
+                        <button type="button" class="btn btn-primary" id="submitApplication">Submit Application</button>
+                    </div>
+                </div>
+                <div class="summary-column">
+                    <h2>Application Summary</h2>
+                    <p>Here’s a summary of the job you’re applying for:</p>
+                    <div id="jobSummary">
+                        <p>
+                            <strong>Job Title:</strong> Software Engineer<br>
+                            <strong>Company:</strong> TechCorp<br>
+                            <strong>Location:</strong> Seattle, WA<br>
+                            <strong>Type:</strong> Full-Time<br>
+                            <strong>Schedule:</strong> Remote
+                        </p>
+                    </div>
+                    <p class="text-muted mt-3">Ensure all details are correct before submission.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>JobQuest aims to connect job seekers with their dream jobs and employers with top talent.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#">Jobs</a>
+                    <a href="#">Companies</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mock data (replace with real data from previous steps or backend)
+            const applicationData = {
+                location: {
+                    city: localStorage.getItem('city') || 'Seattle',
+                    state: localStorage.getItem('state') || 'WA',
+                    postalCode: localStorage.getItem('postalCode') || '98101',
+                    country: localStorage.getItem('country') || 'United States'
+                },
+                resume: {
+                    file: localStorage.getItem('resumeFile') || 'resume.pdf',
+                    text: localStorage.getItem('resumeText') || 'Software Engineer with 5 years of experience...'
+                },
+                job: {
+                    title: 'Software Engineer',
+                    company: 'TechCorp',
+                    location: 'Seattle, WA',
+                    type: 'Full-Time',
+                    schedule: 'Remote'
+                }
+            };
+
+            // Load review data
+            function loadReviewData() {
+                document.getElementById('cityReview').textContent = applicationData.location.city;
+                document.getElementById('stateReview').textContent = applicationData.location.state;
+                document.getElementById('postalReview').textContent = applicationData.location.postalCode;
+                document.getElementById('countryReview').textContent = applicationData.location.country;
+
+                document.getElementById('resumeFileReview').textContent = applicationData.resume.file || 'None';
+                document.getElementById('resumeTextReview').textContent = applicationData.resume.text || 'No text provided';
+
+                document.getElementById('jobSummary').innerHTML = `
+                    <p>
+                        <strong>Job Title:</strong> ${applicationData.job.title}<br>
+                        <strong>Company:</strong> ${applicationData.job.company}<br>
+                        <strong>Location:</strong> ${applicationData.job.location}<br>
+                        <strong>Type:</strong> ${applicationData.job.type}<br>
+                        <strong>Schedule:</strong> ${applicationData.job.schedule}
+                    </p>
+                `;
+            }
+
+            loadReviewData();
+
+            // Edit buttons
+            document.querySelectorAll('.btn-edit').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const section = e.target.getAttribute('data-section');
+                    console.log(`Editing ${section}`);
+                    alert(`Redirecting to edit ${section}... (Mock action)`);
+                    // Replace with actual redirects
+                    if (section === 'location') window.location.href = '/apply/profile-location';
+                    if (section === 'resume') window.location.href = '/apply/resume';
+                });
+            });
+
+            // Submit application
+            document.getElementById('submitApplication').addEventListener('click', () => {
+                console.log('Submitting application:', applicationData);
+                alert('Application submitted successfully! (Mock submission)');
+                // Replace with actual API call
+                /*
+                fetch('/api/apply/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(applicationData)
+                }).then(response => {
+                    if (response.ok) window.location.href = '/apply/confirmation';
+                });
+                */
+                // Optionally clear local storage after submission
+                localStorage.clear();
+            });
+
+            // Back button action
+            document.querySelector('.btn-secondary').addEventListener('click', () => {
+                console.log('Going back to previous step');
+                alert('Returning to previous step... (Mock action)');
+                // Replace with redirect
+                window.location.href = '/apply/resume';
+            });
+        });
+
+        // Mock function to simulate saving data from previous steps (for testing)
+        // Uncomment and run in console to set sample data
+        /*
+        function saveMockData() {
+            localStorage.setItem('city', 'Seattle');
+            localStorage.setItem('state', 'WA');
+            localStorage.setItem('postalCode', '98101');
+            localStorage.setItem('country', 'United States');
+            localStorage.setItem('resumeFile', 'resume.pdf');
+            localStorage.setItem('resumeText', 'Software Engineer with 5 years of experience...');
+        }
+        // saveMockData();
+        */
+    </script>
+</body>
+</html>

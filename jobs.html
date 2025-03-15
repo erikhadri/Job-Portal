@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jobs - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .filter-sidebar {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .filter-sidebar h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-select, .form-control, .form-range {
+            border-radius: 30px;
+            border: none;
+            background: #f8f9fa;
+            box-shadow: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus, .form-control:focus, .form-range:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .card-text {
+            color: #7f8c8d;
+        }
+
+        .btn-outline-primary {
+            border-radius: 30px;
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container job-list">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-sidebar">
+                    <h4>Filter Jobs</h4>
+                    <div class="mb-3">
+                        <label for="jobType" class="form-label">Job Type</label>
+                        <select id="jobType" class="form-select">
+                            <option value="">All</option>
+                            <option>Full-time</option>
+                            <option>Part-time</option>
+                            <option>Contract</option>
+                            <option>Internship</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter Location">
+                    </div>
+                    <div class="mb-3">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="range" class="form-range" id="salary" min="0" max="200000">
+                        <p>Min: $<span id="salaryMin">0</span> - Max: $<span id="salaryMax">200000</span></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="experience" class="form-label">Experience Level</label>
+                        <select id="experience" class="form-select">
+                            <option value="">Any</option>
+                            <option>Entry Level</option>
+                            <option>Mid Level</option>
+                            <option>Senior Level</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary w-100" onclick="applyFilters()">Apply Filters</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h2>Explore Job Opportunities</h2>
+                <div class="row" id="job-listings">
+                    <!-- Job listings will be displayed here -->
+                </div>
+                <button class="btn btn-outline-primary mt-3" onclick="loadMoreJobs()">Load More</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobListings = [
+    { title: 'Senior Software Engineer', company: 'Tech Innovations', location: 'San Francisco, CA', salary: 120000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Product Manager', company: 'Innovative Solutions', location: 'New York, NY', salary: 95000, experience: 'Entry Level', jobType: 'Part-time', detailsLink: 'job-details.html' },
+    { title: 'Marketing Specialist', company: 'Creative Agency', location: 'Los Angeles, CA', salary: 75000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Software Engineer', company: 'TechFlow', location: 'Austin, TX', salary: 105000, experience: 'Junior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Data Scientist', company: 'DataX', location: 'Chicago, IL', salary: 115000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'UX/UI Designer', company: 'Creative Tech', location: 'Seattle, WA', salary: 90000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Product Designer', company: 'Innovative Designs', location: 'Boston, MA', salary: 95000, experience: 'Mid Level', jobType: 'Contract', detailsLink: 'job-details.html' },
+    { title: 'Full Stack Developer', company: 'DevSolutions', location: 'Dallas, TX', salary: 125000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Cloud Architect', company: 'TechSavant', location: 'Denver, CO', salary: 140000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'SEO Specialist', company: 'SEO World', location: 'Miami, FL', salary: 70000, experience: 'Entry Level', jobType: 'Internship', detailsLink: 'job-details.html' },
+    { title: 'Business Analyst', company: 'BusinessCorp', location: 'Washington, D.C.', salary: 95000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Network Engineer', company: 'NetConnect', location: 'Phoenix, AZ', salary: 85000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Sales Manager', company: 'SalesForce', location: 'Las Vegas, NV', salary: 115000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Marketing Manager', company: 'Global Strategies', location: 'San Diego, CA', salary: 105000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Project Manager', company: 'Innovative Projects', location: 'Atlanta, GA', salary: 100000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Digital Marketing Specialist', company: 'MarketingPro', location: 'Orlando, FL', salary: 75000, experience: 'Entry Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Accountant', company: 'Finance Solutions', location: 'Charlotte, NC', salary: 80000, experience: 'Entry Level', jobType: 'Part-time', detailsLink: 'job-details.html' },
+    { title: 'HR Specialist', company: 'People Solutions', location: 'Philadelphia, PA', salary: 90000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Java Developer', company: 'DevTech', location: 'Portland, OR', salary: 110000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Product Marketing Manager', company: 'Tech Products', location: 'Austin, TX', salary: 95000, experience: 'Mid Level', jobType: 'Contract', detailsLink: 'job-details.html' },
+    { title: 'Web Developer', company: 'Web Innovations', location: 'Salt Lake City, UT', salary: 95000, experience: 'Junior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Customer Support Specialist', company: 'SupportPro', location: 'Las Vegas, NV', salary: 55000, experience: 'Entry Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Frontend Developer', company: 'Web Solutions', location: 'Los Angeles, CA', salary: 100000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Backend Developer', company: 'TechWorks', location: 'New York, NY', salary: 115000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Database Administrator', company: 'DB Systems', location: 'Houston, TX', salary: 120000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'QA Engineer', company: 'QualityTech', location: 'Seattle, WA', salary: 95000, experience: 'Junior Level', jobType: 'Contract', detailsLink: 'job-details.html' },
+    { title: 'DevOps Engineer', company: 'OpsTech', location: 'Chicago, IL', salary: 130000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Cloud Engineer', company: 'CloudX', location: 'San Francisco, CA', salary: 140000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Content Strategist', company: 'ContentCo', location: 'Miami, FL', salary: 75000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Operations Manager', company: 'OpsCorp', location: 'Dallas, TX', salary: 105000, experience: 'Senior Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Graphic Designer', company: 'DesignMasters', location: 'Portland, OR', salary: 75000, experience: 'Entry Level', jobType: 'Full-time', detailsLink: 'job-details.html' },
+    { title: 'Account Manager', company: 'AccountPro', location: 'Denver, CO', salary: 90000, experience: 'Mid Level', jobType: 'Full-time', detailsLink: 'job-details.html' }
+];
+
+
+        let currentJobIndex = 0;
+        const jobsPerPage = 3; // Number of jobs to show at a time
+
+        function displayJobs(jobs) {
+            const jobContainer = document.getElementById('job-listings');
+            jobContainer.innerHTML = ''; // Clear the job container before adding new ones
+            jobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.classList.add('col-md-6', 'mb-4');
+                jobCard.innerHTML = `
+                    <div class="card job-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${job.title}</h5>
+                            <p class="card-text">${job.company} - ${job.location}</p>
+                            <p class="card-text">${job.jobType} - $${job.salary}/year</p>
+                            <a href="${job.detailsLink}" class="btn btn-primary">View Job</a>
+                        </div>
+                    </div>
+                `;
+                jobContainer.appendChild(jobCard);
+            });
+        }
+
+        function applyFilters() {
+            const jobType = document.getElementById('jobType').value;
+            const location = document.getElementById('location').value.toLowerCase();
+            const salary = document.getElementById('salary').value;
+            const experience = document.getElementById('experience').value;
+
+            const filteredJobs = jobListings.filter(job => {
+                return (
+                    (!jobType || job.jobType === jobType) &&
+                    (!location || job.location.toLowerCase().includes(location)) &&
+                    (!salary || job.salary <= salary) &&
+                    (!experience || job.experience === experience)
+                );
+            });
+
+            currentJobIndex = 0; // Reset to show the first set of filtered jobs
+            displayJobs(filteredJobs.slice(currentJobIndex, currentJobIndex + jobsPerPage));
+        }
+
+        function loadMoreJobs() {
+            const filteredJobs = jobListings.filter(job => {
+                const jobType = document.getElementById('jobType').value;
+                const location = document.getElementById('location').value.toLowerCase();
+                const salary = document.getElementById('salary').value;
+                const experience = document.getElementById('experience').value;
+
+                return (
+                    (!jobType || job.jobType === jobType) &&
+                    (!location || job.location.toLowerCase().includes(location)) &&
+                    (!salary || job.salary <= salary) &&
+                    (!experience || job.experience === experience)
+                );
+            });
+
+            currentJobIndex += jobsPerPage; // Increase the index for the next set of jobs
+            displayJobs(filteredJobs.slice(currentJobIndex, currentJobIndex + jobsPerPage));
+        }
+
+        document.getElementById('salary').addEventListener('input', function() {
+            document.getElementById('salaryMin').textContent = this.value;
+        });
+
+        displayJobs(jobListings.slice(0, jobsPerPage)); // Display the initial set of jobs
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f2f7ff;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .job-desc-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-desc-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-control, .form-select {
+            border-radius: 30px;
+            border: 1px solid var(--secondary-color);
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">JobQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Post a Job</h1>
+        <div class="job-desc-section">
+            <h2>Job Description</h2>
+            <form id="jobDescForm">
+                <div class="mb-3">
+                    <label for="jobDescription" class="form-label">Tell us about this job</label>
+                    <textarea class="form-control" id="jobDescription" name="jobDescription" rows="6" placeholder="Describe the role, responsibilities, and what candidates can expect."></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="qualifications" class="form-label">What qualifications are you looking for?</label>
+                    <textarea class="form-control" id="qualifications" name="qualifications" rows="4" placeholder="List required skills, experience, or education."></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="benefits" class="form-label">What benefits do you offer?</label>
+                    <textarea class="form-control" id="benefits" name="benefits" rows="4" placeholder="e.g., Health insurance, paid time off, etc."></textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary btn-lg" id="backButton">Back</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>JobQuest aims to connect job seekers with their dream jobs and employers with top talent.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#">Jobs</a>
+                    <a href="#">Companies</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mock initial data (replace with real data from backend)
+        const jobData = {
+            jobDescription: "",
+            qualifications: "",
+            benefits: ""
+        };
+
+        // Form Submission
+        document.getElementById('jobDescForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {
+                jobDescription: formData.get('jobDescription'),
+                qualifications: formData.get('qualifications'),
+                benefits: formData.get('benefits')
+            };
+            console.log('Job Description Data:', data);
+            alert('Continuing to next step... (Mock submission)');
+            // Replace with redirect or backend fetch, e.g., window.location.href = '/job-posting/next-step';
+        });
+
+        // Back Button Action
+        document.getElementById('backButton').addEventListener('click', () => {
+            console.log('Going back to previous step');
+            alert('Returning to previous step... (Mock action)');
+            // Replace with redirect, e.g., window.location.href = '/job-posting/getting-started';
+        });
+    </script>
+</body>
+</html>

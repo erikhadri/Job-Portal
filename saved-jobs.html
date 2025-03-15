@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Saved Jobs - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f5f7fa;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .job-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .job-categories h2 {
+            width: 100%;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .job-categories h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+
+        .job-card:hover::before {
+            left: 100%;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary, .btn-outline-secondary {
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .job-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container">
+        <h1>Your Saved Jobs</h1>
+        <div class="job-categories">
+            <h2>Must Apply</h2>
+            <div class="job-card">
+                <div class="card-body">
+                    <h5 class="card-title">Senior Software Developer</h5>
+                    <p class="card-text">Tech Innovations - San Francisco, CA</p>
+                    <p class="card-text"><strong>Salary:</strong> $120,000/year</p>
+                    <button class="btn btn-primary">Apply</button>
+                    <button class="btn btn-outline-secondary">Remove</button>
+                </div>
+            </div>
+            <!-- More job listings for "Must Apply" -->
+
+            <h2>Considering</h2>
+            <div class="job-card">
+                <div class="card-body">
+                    <h5 class="card-title">Data Analyst</h5>
+                    <p class="card-text">DataCorp - New York, NY</p>
+                    <p class="card-text"><strong>Salary:</strong> $90,000/year</p>
+                    <button class="btn btn-primary">Apply</button>
+                    <button class="btn btn-outline-secondary">Remove</button>
+                </div>
+            </div>
+            <!-- More job listings for "Considering" -->
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Saved Jobs Page Loaded");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Innovations - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f7f9fc;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .company-overview, .current-openings, .benefits {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-overview::before, .current-openings::before, .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+
+        .company-overview:hover::before, .current-openings:hover::before, .benefits:hover::before {
+            left: 100%;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        .company-overview img {
+            max-width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .company-overview img:hover {
+            transform: scale(1.05);
+        }
+
+        strong {
+            color: var(--secondary-color);
+        }
+
+        .job-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .benefits ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            background: #fff;
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin: 5px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container">
+        <h1>Tech Innovations</h1>
+        <div class="company-overview">
+            <h2>About Us</h2>
+            <p>Tech Innovations leads the tech industry with innovative solutions for a better tomorrow. We are committed to pushing the boundaries of technology to create products that enhance lives.</p>
+            <img src="company-logo.jpg" alt="Company Logo">
+            <p><strong>Mission:</strong> To innovate for a better tomorrow.</p>
+            <p><strong>Culture:</strong> Collaborative, inclusive, and dynamic.</p>
+        </div>
+
+        <div class="current-openings">
+            <h2>Current Openings</h2>
+            <div class="job-card">
+                <h5>Software Engineer</h5>
+                <p>Location: San Francisco, CA</p>
+                <p>Job Type: Full-time</p>
+                <a href="#" class="btn btn-primary">View Job</a>
+            </div>
+            <!-- More job listings -->
+        </div>
+
+        <div class="benefits">
+            <h2>Benefits and Perks</h2>
+            <ul>
+                <li>Health, Dental, Vision Insurance</li>
+                <li>401(k) Plan with Matching</li>
+                <li>Flexible Work Hours</li>
+                <li>Annual Education Allowance</li>
+                <li>Remote Work Options</li>
+                <li>Wellness Programs</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Employer Profile Page Loaded");
+        });
+    </script>
+</body>
+</html>

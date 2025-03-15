@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Application Submitted - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f2f7ff;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .confirmation-message {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .job-details {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 10px auto;
+            width: fit-content;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 10px auto;
+            width: fit-content;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">JobQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="jobs.html">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="salaries.html">Salaries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interviews.html">Interviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="career-advice.html">Career Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="post-job.html">Post Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apply-1.html">Employee Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registerting-employer-1.html">Employer Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <h1>Application Submitted</h1>
+        <div class="content-section">
+            <div class="confirmation-message">
+                <h2>Thank You!</h2>
+                <p>Your application has been successfully submitted. Here’s what happens next:</p>
+            </div>
+            <div class="job-details" id="jobDetails">
+                <p>
+                    <strong>Job Title:</strong> <span id="jobTitle">Software Engineer</span><br>
+                    <strong>Company:</strong> <span id="company">TechCorp</span><br>
+                    <strong>Location:</strong> <span id="jobLocation">Seattle, WA</span><br>
+                    <strong>Type:</strong> <span id="jobType">Full-Time</span><br>
+                    <strong>Schedule:</strong> <span id="jobSchedule">Remote</span>
+                </p>
+            </div>
+            <p class="text-center">You’ll receive a confirmation email soon. The employer will review your application and contact you if there’s a match.</p>
+            <button class="btn btn-primary" id="viewProfile">View Your Profile</button>
+            <button class="btn btn-secondary" id="searchMoreJobs">Search More Jobs</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>JobQuest aims to connect job seekers with their dream jobs and employers with top talent.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#">Jobs</a>
+                    <a href="#">Companies</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mock job data (replace with real data from previous steps or backend)
+            const jobData = {
+                title: localStorage.getItem('jobTitle') || 'Software Engineer',
+                company: localStorage.getItem('company') || 'TechCorp',
+                location: localStorage.getItem('jobLocation') || 'Seattle, WA',
+                type: localStorage.getItem('jobType') || 'Full-Time',
+                schedule: localStorage.getItem('jobSchedule') || 'Remote'
+            };
+
+            // Load job details
+            function loadJobDetails() {
+                document.getElementById('jobTitle').textContent = jobData.title;
+                document.getElementById('company').textContent = jobData.company;
+                document.getElementById('jobLocation').textContent = jobData.location;
+                document.getElementById('jobType').textContent = jobData.type;
+                document.getElementById('jobSchedule').textContent = jobData.schedule;
+            }
+
+            loadJobDetails();
+
+            // Button actions
+            document.getElementById('viewProfile').addEventListener('click', () => {
+                console.log('Viewing profile');
+                alert('Redirecting to your profile... (Mock action)');
+                // Replace with actual redirect
+                window.location.href = '/profile';
+            });
+
+            document.getElementById('searchMoreJobs').addEventListener('click', () => {
+                console.log('Searching more jobs');
+                alert('Redirecting to job search... (Mock action)');
+                // Replace with actual redirect
+                window.location.href = '/jobs';
+            });
+
+            // Optional: Clear local storage after successful submission
+            // localStorage.clear();
+        });
+
+        // Mock function to simulate saving job data (for testing)
+        // Uncomment and run in console to set sample data
+        /*
+        function saveMockJobData() {
+            localStorage.setItem('jobTitle', 'Software Engineer');
+            localStorage.setItem('company', 'TechCorp');
+            localStorage.setItem('jobLocation', 'Seattle, WA');
+            localStorage.setItem('jobType', 'Full-Time');
+            localStorage.setItem('jobSchedule', 'Remote');
+        }
+        // saveMockJobData();
+        */
+    </script>
+</body>
+</html>

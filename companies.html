@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Companies - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f7f9fc;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        .company-list {
+            margin-top: 100px; /* Adjust for fixed navbar */
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5em;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .company-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-card:hover::before {
+            opacity: 1;
+        }
+
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .company-card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .load-more-btn {
+            display: block;
+            margin: 40px auto 0;
+            font-size: 1em;
+            border: 2px solid var(--secondary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container company-list">
+        <h2>Explore Companies</h2>
+        <div class="row">
+            <!-- Mockup of company listings -->
+            <div class="col-md-4 mb-4">
+                <div class="card company-card">
+                    <img src="company-logo.jpg" class="card-img-top" alt="Tech Innovations Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Innovations</h5>
+                        <p class="card-text">San Francisco, CA</p>
+                        <p class="card-text"><strong>Rating:</strong> <span class="text-warning">4.5</span> ⭐</p>
+                        <a href="company-details.html" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card company-card">
+                    <img src="company-logo2.jpg" class="card-img-top" alt="DataCorp Logo">
+                    <div class="card-body">
+                        <h5 class="card-title">DataCorp</h5>
+                        <p class="card-text">New York, NY</p>
+                        <p class="card-text"><strong>Rating:</strong> <span class="text-warning">4.7</span> ⭐</p>
+                        <a href="company-details.html" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for more companies -->
+        </div>
+        <button class="btn btn-outline-primary load-more-btn" onclick="loadMoreCompanies()">Load More</button>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>We connect career paths with opportunities.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="jobs.html">Jobs</a>
+                    <a href="companies.html">Companies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        function loadMoreCompanies() {
+            alert('More companies would be loaded here.');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Companies Page Loaded");
+        });
+    </script>
+</body>
+</html>

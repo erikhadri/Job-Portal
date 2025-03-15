@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Your Career - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 100px; /* Adjust for fixed navbar */
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .lead {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .form-control, .btn {
+            border-radius: 30px;
+            border: none;
+            background: var(--card-bg);
+        }
+
+        .form-control {
+            box-shadow: none;
+            padding: 15px 20px;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+        }
+
+        .filter-sidebar {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+        }
+
+        .form-select, .form-range {
+            border-radius: 30px;
+            border: none;
+            background: #f8f9fa;
+            box-shadow: none;
+        }
+
+        .form-select:focus, .form-range:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline-primary {
+            border-radius: 30px;
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .modal-header {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .modal-title {
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body .btn {
+            border-radius: 30px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">JobQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="jobs.html">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="salaries.html">Salaries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interviews.html">Interviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="career-advice.html">Career Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="post-job.html">Post Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apply-1.html">Employee Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registerting-employer-1.html">Employer Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+<main class="container">
+    <section id="home" class="row">
+        <div class="col-md-3 filter-sidebar">
+            <h5>Refine Your Search</h5>
+            <div class="mb-3">
+                <label for="jobType" class="form-label">Job Type</label>
+                <select id="jobType" class="form-select" onchange="filterJobs()">
+                    <option value="">All</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Contract</option>
+                    <option>Internship</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="locationFilter" class="form-label">Location</label>
+                <input type="text" class="form-control" id="locationFilter" placeholder="Enter Location" oninput="filterJobs()">
+            </div>
+            <div class="mb-3">
+                <label for="salaryRange" class="form-label">Salary Range</label>
+                <input type="range" class="form-range" id="salaryRange" min="0" max="200000" step="1000" oninput="filterJobs()">
+                <p>Min: $<span id="salaryMin">0</span> - Max: $<span id="salaryMax">200000</span></p>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h1>Discover Your Dream Job</h1>
+            <p class="lead">Connect with employers looking for talent like you.</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="jobSearch" placeholder="Search for jobs..." aria-label="Search for jobs" aria-describedby="button-addon2">
+                <button class="btn btn-primary" onclick="searchJobs()" id="button-addon2">Search</button>
+            </div>
+            <section id="jobs">
+                <h2 class="mb-3">Current Job Openings</h2>
+                <div id="job-list" class="row">
+                    <!-- Jobs will be dynamically inserted here -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="card-title job-title">Senior Software Developer</h5>
+                                <p class="card-text">Tech Innovations</p>
+                                <p class="card-text">San Francisco, CA</p>
+                                <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for more jobs -->
+                </div>
+                <button class="btn btn-outline-primary mt-3" onclick="loadMoreJobs()">Load More</button>
+            </section>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>We connect career paths with opportunities.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#jobs">Jobs</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@jobquest.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <hr style="background-color: rgba(255, 255, 255, 0.2);">
+        <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Apply Job Modal -->
+<div class="modal fade" id="applyJobModal" tabindex="-1" aria-labelledby="applyJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="applyJobModalLabel">Apply for Job</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="applicantName" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="applicantEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="applicantCoverLetter" rows="3" placeholder="Cover Letter" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="profileName" placeholder="Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="profileEmail" placeholder="Email" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="profileBio" rows="3" placeholder="Tell about yourself"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="profileLocation" placeholder="Location">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Post Job Modal -->
+<div class="modal fade" id="postJobModal" tabindex="-1" aria-labelledby="postJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="postJobModalLabel">Post a Job</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="postJobForm">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="jobCompany" placeholder="Company Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="jobLocation" placeholder="Location" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="jobDescription" rows="3" placeholder="Job Description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <select id="jobType" class="form-select" required>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Internship">Internship</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="jobSalary" placeholder="Salary" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Post Job</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="job_portal.js"></script>
+</body>
+</html>

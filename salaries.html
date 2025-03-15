@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Insights - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5em;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .salary-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .salary-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h3 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            color: var(--secondary-color);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .form-select {
+            border-radius: 30px;
+            border: 1px solid var(--secondary-color);
+            background: #f8f9fa;
+            padding: 10px 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            max-width: 300px;
+            margin: 0 auto 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+    </nav>
+
+    <main class="container salary-section">
+        <h2>Salary Insights</h2>
+        <div id="salaryInsights" class="row">
+            <div class="col-md-6 salary-card" data-title="Software Engineer" data-location="New York">
+                <h3>Software Engineer</h3>
+                <p><strong>Average Salary:</strong> $110,000/year</p>
+                <p><strong>Salary Range:</strong> $80,000 - $150,000</p>
+            </div>
+            <div class="col-md-6 salary-card" data-title="Data Scientist" data-location="San Francisco">
+                <h3>Data Scientist</h3>
+                <p><strong>Average Salary:</strong> $125,000/year</p>
+                <p><strong>Salary Range:</strong> $95,000 - $160,000</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="jobTitle" class="form-label">Select Job Title</label>
+            <select id="jobTitle" class="form-select">
+                <option value="">Choose Job Title</option>
+                <option>Software Engineer</option>
+                <option>Data Scientist</option>
+                <option>Product Manager</option>
+                <option>UX Designer</option>
+                <option>Marketing Manager</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Select Location</label>
+            <select id="location" class="form-select">
+                <option value="">Choose Location</option>
+                <option>New York</option>
+                <option>San Francisco</option>
+                <option>Los Angeles</option>
+                <option>Chicago</option>
+                <option>Boston</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" onclick="updateSalaryInsights()">Get Insights</button>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script>
+        function updateSalaryInsights() {
+            const jobTitle = document.getElementById('jobTitle').value;
+            const location = document.getElementById('location').value;
+            const salaryCards = document.querySelectorAll('.salary-card');
+            
+            salaryCards.forEach(card => {
+                const cardTitle = card.getAttribute('data-title');
+                const cardLocation = card.getAttribute('data-location');
+                if ((jobTitle && cardTitle !== jobTitle) || (location && cardLocation !== location)) {
+                    card.style.display = 'none';
+                } else {
+                    card.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

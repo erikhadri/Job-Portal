@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Advice - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f5f7fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        .advice-section {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5em;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .filter-dropdown {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-select {
+            border: none;
+            border-radius: 0;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .form-select:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .advice-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .advice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container advice-section">
+        <h2>Career Advice</h2>
+        <div class="filter-dropdown">
+            <select class="form-select" id="topicSelect" onchange="filterAdvice()">
+                <option value="">Select Topic</option>
+                <option>Resume Writing</option>
+                <option>Interview Tips</option>
+                <option>Networking</option>
+                <option>Job Search Strategies</option>
+                <option>Career Change</option>
+            </select>
+        </div>
+        
+        <div id="adviceList" class="row">
+            <!-- Mockup of advice articles -->
+            <div class="col-md-6 mb-4">
+                <div class="advice-card">
+                    <div class="card-body">
+                        <h5 class="card-title">How to Write a Standout Resume</h5>
+                        <p class="card-text">Learn key strategies to make your resume catch the eye of recruiters.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="advice-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mastering the Art of Networking</h5>
+                        <p class="card-text">Unlock opportunities through professional networking techniques.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for more articles -->
+        </div>
+        
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="loadMoreAdvice()">Load More</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>We connect career paths with opportunities.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="jobs.html">Jobs</a>
+                    <a href="companies.html">Companies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        function loadMoreAdvice() {
+            alert('More career advice articles would be loaded here.');
+        }
+
+        function filterAdvice() {
+            const topic = document.getElementById('topicSelect').value;
+            alert(`Filtering advice for ${topic}`);
+            // In reality, this would fetch new content or filter existing content
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Career Advice Page Loaded");
+        });
+    </script>
+</body>
+</html>

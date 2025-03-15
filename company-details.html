@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Innovations - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f2f6f9;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        .company-header {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+
+        .company-header:hover::before {
+            left: 100%;
+        }
+
+        .company-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .company-header:hover .company-logo {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .company-rating {
+            font-size: 1.2em;
+            color: gold;
+        }
+
+        .company-info, .job-list, .review-list {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+            padding: 2rem;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container">
+        <section class="company-header">
+            <img src="company-logo.jpg" alt="Tech Innovations Logo" class="company-logo">
+            <h2>Tech Innovations</h2>
+            <p>Leading the way in technology innovation</p>
+            <p class="company-rating">Rating: <span class="text-warning">4.5</span>⭐</p>
+        </section>
+
+        <section class="company-info">
+            <h3>Company Overview</h3>
+            <p>Since 2010, Tech Innovations has been at the forefront of technological breakthroughs, driving the future with innovative solutions.</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li><strong>Employees:</strong> 1,000+</li>
+                <li><strong>Industry:</strong> Technology</li>
+            </ul>
+        </section>
+
+        <section class="job-list">
+            <h3>Open Positions</h3>
+            <div class="row">
+                <!-- Mockup of job listings -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Senior Software Engineer</h5>
+                            <p class="card-text">San Francisco, CA - Full-time</p>
+                            <a href="job-details.html" class="btn btn-primary">Apply</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Scientist</h5>
+                            <p class="card-text">New York, NY - Contract</p>
+                            <a href="job-details.html" class="btn btn-primary">Apply</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for more jobs -->
+            </div>
+        </section>
+
+        <section class="review-list">
+            <h3>Employee Reviews</h3>
+            <div class="mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Great Place to Work</h5>
+                        <p class="card-text">The culture here is very supportive, lots of opportunities for growth.</p>
+                        <p class="card-text"><em>By John Doe</em></p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-primary">Write a Review</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>We connect career paths with opportunities.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="jobs.html">Jobs</a>
+                    <a href="companies.html">Companies</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Company Details Page Loaded");
+        });
+    </script>
+</body>
+</html>

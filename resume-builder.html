@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craft Your Resume - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .template-selection {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .template-selection::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+
+        .template-selection:hover::before {
+            left: 100%;
+        }
+
+        .template-selection h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .template-selection .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .template-selection .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .resume-editor {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            min-height: 500px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            border-radius: 30px;
+            border: 1px solid var(--secondary-color);
+            background: #f8f9fa;
+            padding: 15px;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .tips {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .tips h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .tips ul {
+            padding-left: 20px;
+        }
+
+        .tips li {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container">
+        <h1>Resume Builder</h1>
+        <div class="template-selection">
+            <h4>Choose a Template</h4>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="template1.jpg" class="card-img-top" alt="Resume Template 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Modern</h5>
+                            <button class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="template2.jpg" class="card-img-top" alt="Resume Template 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Professional</h5>
+                            <button class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="template3.jpg" class="card-img-top" alt="Resume Template 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Creative</h5>
+                            <button class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- More template options can be added here -->
+            </div>
+        </div>
+
+        <div class="resume-editor">
+            <form id="resumeForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="123-456-7890" required>
+                </div>
+                <div class="mb-3">
+                    <label for="summary" class="form-label">Professional Summary</label>
+                    <textarea class="form-control" id="summary" rows="3" placeholder="Brief summary of your professional background and skills"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="experience" class="form-label">Work Experience</label>
+                    <textarea class="form-control" id="experience" rows="5" placeholder="List your previous positions, responsibilities, and achievements"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="education" class="form-label">Education</label>
+                    <textarea class="form-control" id="education" rows="3" placeholder="Details about your educational background"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label">Skills</label>
+                    <textarea class="form-control" id="skills" rows="3" placeholder="Relevant skills, technologies, languages"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Resume</button>
+            </form>
+        </div>
+
+        <div class="tips">
+            <h4>Resume Tips</h4>
+            <ul>
+                <li>Keep it concise; ideally one page.</li>
+                <li>Use keywords relevant to the job you're applying for.</li>
+                <li>Quantify your achievements where possible.</li>
+                <li>Customize your resume for each job application.</li>
+                <li>Include a link to your LinkedIn profile or portfolio if applicable.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        document.getElementById('resumeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your resume has been saved!');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Resume Builder Page Loaded");
+        });
+    </script>
+</body>
+</html>

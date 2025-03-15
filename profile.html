@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+
+        .profile-card:hover::before {
+            left: 100%;
+        }
+
+        h3 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            color: var(--secondary-color);
+        }
+
+        h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background: #f8f9fa;
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Added styles for editing */
+        .editable:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .editing {
+            background-color: #fff3cd;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container profile-section">
+        <h2>Your Profile</h2>
+        <div class="profile-card">
+            <h3 class="editable" id="name">John Doe</h3>
+            <p><strong>Email:</strong> <span class="editable" id="email">john.doe@example.com</span></p>
+            <p><strong>Location:</strong> <span class="editable" id="location">San Francisco, CA</span></p>
+            <p><strong>Current Job:</strong> <span class="editable" id="job">Software Engineer</span></p>
+            <p><strong>Bio:</strong> <span class="editable" id="bio">Passionate about technology, solving complex problems, and learning new things.</span></p>
+            <h4>Skills</h4>
+            <ul id="skills-list">
+                <li class="editable" id="skill-1">JavaScript</li>
+                <li class="editable" id="skill-2">React</li>
+                <li class="editable" id="skill-3">Python</li>
+            </ul>
+            <button class="btn btn-primary mb-3" id="edit-profile">Edit Profile</button>
+            <button class="btn btn-primary mb-3" id="save-profile" style="margin-left: 10px;">Save</button>
+            <h4>Resume</h4>
+            <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" style="display: none;">
+            <a href="#" class="btn btn-primary" id="resume-link">Upload/View Resume</a>
+        </div>
+
+        <h3 class="mt-5">Your Job Applications</h3>
+        <div id="jobApplications">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title editable" id="app-title">Software Engineer - Tech Innovations</h5>
+                    <p class="card-text">Applied on: <span class="editable" id="app-date">March 1, 2023</span></p>
+                    <p class="card-text"><strong>Status:</strong> <span class="editable" id="app-status">Under Review</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isEditing = false;
+
+        // Load saved data from localStorage
+        function loadProfile() {
+            const profile = JSON.parse(localStorage.getItem('profile')) || {};
+            document.getElementById('name').textContent = profile.name || 'John Doe';
+            document.getElementById('email').textContent = profile.email || 'john.doe@example.com';
+            document.getElementById('location').textContent = profile.location || 'San Francisco, CA';
+            document.getElementById('job').textContent = profile.job || 'Software Engineer';
+            document.getElementById('bio').textContent = profile.bio || 'Passionate about technology, solving complex problems, and learning new things.';
+            document.getElementById('skill-1').textContent = profile.skills?.[0] || 'JavaScript';
+            document.getElementById('skill-2').textContent = profile.skills?.[1] || 'React';
+            document.getElementById('skill-3').textContent = profile.skills?.[2] || 'Python';
+            document.getElementById('app-title').textContent = profile.applications?.[0]?.title || 'Software Engineer - Tech Innovations';
+            document.getElementById('app-date').textContent = profile.applications?.[0]?.date || 'March 1, 2023';
+            document.getElementById('app-status').textContent = profile.applications?.[0]?.status || 'Under Review';
+            if (profile.resume) {
+                document.getElementById('resume-link').href = profile.resume;
+                document.getElementById('resume-link').textContent = 'View Resume'; // Reflect saved resume
+            }
+        }
+
+        // Save profile to localStorage
+        function saveProfile() {
+            const profile = {
+                name: document.getElementById('name').textContent,
+                email: document.getElementById('email').textContent,
+                location: document.getElementById('location').textContent,
+                job: document.getElementById('job').textContent,
+                bio: document.getElementById('bio').textContent,
+                skills: [
+                    document.getElementById('skill-1').textContent,
+                    document.getElementById('skill-2').textContent,
+                    document.getElementById('skill-3').textContent
+                ],
+                applications: [{
+                    title: document.getElementById('app-title').textContent,
+                    date: document.getElementById('app-date').textContent,
+                    status: document.getElementById('app-status').textContent
+                }],
+                resume: document.getElementById('resume-link').href
+            };
+            localStorage.setItem('profile', JSON.stringify(profile));
+            alert('Profile saved!');
+        }
+
+        // Toggle edit mode
+        document.getElementById('edit-profile').addEventListener('click', function() {
+            isEditing = !isEditing;
+            const editables = document.querySelectorAll('.editable');
+            if (isEditing) {
+                this.textContent = 'Cancel Editing';
+                editables.forEach(el => el.classList.add('editable-active'));
+            } else {
+                this.textContent = 'Edit Profile';
+                editables.forEach(el => el.classList.remove('editable-active'));
+            }
+        });
+
+        // Make elements editable only when in edit mode
+        document.querySelectorAll('.editable').forEach(element => {
+            element.addEventListener('click', function() {
+                if (isEditing && !this.classList.contains('editing')) {
+                    const currentText = this.textContent;
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = currentText;
+                    input.classList.add('form-control');
+                    this.textContent = '';
+                    this.appendChild(input);
+                    this.classList.add('editing');
+                    input.focus();
+
+                    input.addEventListener('blur', function() {
+                        element.textContent = this.value || currentText;
+                        element.classList.remove('editing');
+                    });
+
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            element.textContent = this.value || currentText;
+                            element.classList.remove('editing');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Handle resume upload
+        const resumeLink = document.getElementById('resume-link');
+        const resumeUpload = document.getElementById('resume-upload');
+
+        resumeLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // If no resume is uploaded yet or in edit mode, trigger file upload
+            if (this.href === '#' || isEditing) {
+                resumeUpload.click();
+            }
+            // Otherwise, allow the link to open the resume
+        });
+
+        resumeUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    resumeLink.href = e.target.result;
+                    resumeLink.textContent = 'View Resume';
+                    // Save immediately after upload if not in edit mode
+                    if (!isEditing) {
+                        saveProfile();
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Save profile when Save button is clicked
+        document.getElementById('save-profile').addEventListener('click', saveProfile);
+
+        // Load profile on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Profile Page Loaded");
+            loadProfile();
+        });
+    </script>
+</body>
+</html>

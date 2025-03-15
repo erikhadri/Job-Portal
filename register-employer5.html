@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f2f7ff;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .form-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .results-column {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .form-control, .form-select {
+            border-radius: 30px;
+            border: 1px solid var(--secondary-color);
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        .btn-apply {
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .job-listing {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .job-listing h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">JobQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="jobs.html">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="salaries.html">Salaries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interviews.html">Interviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="career-advice.html">Career Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="post-job.html">Post Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apply-1.html">Employee Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registerting-employer-1.html">Employer Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <main class="container">
+        <h1>Find Your Next Job</h1>
+        <div class="content-section">
+            <div class="two-column">
+                <div class="form-column">
+                    <h2>Search Jobs</h2>
+                    <p class="form-text text-muted">Enter your preferences to find jobs that match your skills and location.</p>
+                    <form id="jobSearchForm">
+                        <div class="mb-4">
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="e.g., Software Engineer" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="e.g., Seattle, WA" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="employmentType" class="form-label">Employment Type</label>
+                            <select class="form-select" id="employmentType" name="employmentType">
+                                <option value="">Any</option>
+                                <option value="full-time">Full-Time</option>
+                                <option value="part-time">Part-Time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="workSchedule" class="form-label">Work Schedule</label>
+                            <select class="form-select" id="workSchedule" name="workSchedule">
+                                <option value="">Any</option>
+                                <option value="standard">Standard (9-5)</option>
+                                <option value="flexible">Flexible</option>
+                                <option value="shift">Shift Work</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary">Reset</button>
+                            <a href="register-employer6.html" type="submit" class="btn btn-primary">Continue</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="results-column">
+                    <h2>Job Results</h2>
+                    <p>View jobs matching your search criteria below:</p>
+                    <div id="jobResults"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>JobQuest aims to connect job seekers with their dream jobs and employers with top talent.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#">Jobs</a>
+                    <a href="#">Companies</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@jobquest.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255, 255, 255, 0.2);">
+            <p class="text-center">© 2025 JobQuest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mock job data (replace with real API integration)
+        const mockJobs = [
+            { id: 1, title: "Software Engineer", company: "TechCorp", location: "Seattle, WA", type: "full-time", schedule: "remote", description: "Develop cutting-edge software solutions." },
+            { id: 2, title: "Product Manager", company: "InnoVault", location: "San Francisco, CA", type: "full-time", schedule: "standard", description: "Lead product development teams." },
+            { id: 3, title: "Graphic Designer", company: "CreativeLabs", location: "New York, NY", type: "part-time", schedule: "flexible", description: "Create stunning visual designs." },
+            { id: 4, title: "Data Analyst", company: "DataWorks", location: "Seattle, WA", type: "contract", schedule: "remote", description: "Analyze data to drive insights." },
+            { id: 5, title: "Intern", company: "StartUpX", location: "Austin, TX", type: "internship", schedule: "flexible", description: "Support various startup projects." }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('jobSearchForm');
+            const jobResults = document.getElementById('jobResults');
+            const resetBtn = document.querySelector('.btn-secondary');
+
+            // Search functionality
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const searchCriteria = {
+                    jobTitle: formData.get('jobTitle').toLowerCase(),
+                    location: formData.get('location').toLowerCase(),
+                    employmentType: formData.get('employmentType'),
+                    workSchedule: formData.get('workSchedule')
+                };
+
+                // Filter jobs based on criteria
+                const filteredJobs = mockJobs.filter(job => {
+                    const matchesTitle = job.title.toLowerCase().includes(searchCriteria.jobTitle);
+                    const matchesLocation = job.location.toLowerCase().includes(searchCriteria.location);
+                    const matchesType = !searchCriteria.employmentType || job.type === searchCriteria.employmentType;
+                    const matchesSchedule = !searchCriteria.workSchedule || job.schedule === searchCriteria.workSchedule;
+                    return matchesTitle && matchesLocation && matchesType && matchesSchedule;
+                });
+
+                // Display results
+                displayJobs(filteredJobs);
+            });
+
+            // Reset form and results
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                jobResults.innerHTML = '<p>Enter search criteria to see job listings.</p>';
+            });
+
+            // Initial display
+            jobResults.innerHTML = '<p>Enter search criteria to see job listings.</p>';
+
+            // Function to display job listings
+            function displayJobs(jobs) {
+                if (jobs.length === 0) {
+                    jobResults.innerHTML = '<p>No jobs found matching your criteria.</p>';
+                    return;
+                }
+
+                jobResults.innerHTML = jobs.map(job => `
+                    <div class="job-listing">
+                        <h3>${job.title}</h3>
+                        <p><strong>Company:</strong> ${job.company}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>Type:</strong> ${job.type}</p>
+                        <p><strong>Schedule:</strong> ${job.schedule}</p>
+                        <p>${job.description}</p>
+                        <button class="btn-apply" data-job-id="${job.id}">Apply Now</button>
+                    </div>
+                `).join('');
+
+                // Add apply button functionality
+                document.querySelectorAll('.btn-apply').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const jobId = e.target.getAttribute('data-job-id');
+                        const job = jobs.find(j => j.id == jobId);
+                        console.log('Applying to:', job);
+                        alert(`Application submitted for ${job.title} at ${job.company} (Mock action)`);
+                        // Replace with actual application logic (e.g., redirect to application form or API call)
+                        // window.location.href = `/apply/${job.id}`;
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

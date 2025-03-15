@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f5f7fa;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px; /* Adjust for fixed navbar */
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dashboard-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            border: none;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background: #e9ecef;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container">
+        <h1>Your Dashboard</h1>
+        
+        <div class="dashboard-section">
+            <h2>Your Applications</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Software Developer at Tech Innovations - Applied 2 days ago</li>
+                <li class="list-group-item">Data Analyst at DataCorp - Applied 1 week ago</li>
+                <!-- Add more applications -->
+            </ul>
+            <a href="#" class="btn btn-primary">View All Applications</a>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Saved Jobs</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Senior Software Engineer - Tech Innovations</li>
+                <li class="list-group-item">Junior Data Scientist - DataCorp</li>
+                <!-- Add more saved jobs -->
+            </ul>
+            <a href="#" class="btn btn-primary">Manage Saved Jobs</a>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Job Alerts</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Software Engineer in San Francisco</li>
+                <li class="list-group-item">Data Science Jobs in New York</li>
+                <!-- Add more alerts -->
+            </ul>
+            <a href="#" class="btn btn-primary">Edit Alerts</a>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Resume & Achievements</h2>
+            <p>Your resume is up to date.</p>
+            <p><strong>Recent Achievements:</strong></p>
+            <ul>
+                <li>Completed Python for Data Science Course</li>
+                <li>Received AWS Certified Solutions Architect Associate</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Update Resume</a>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("User Dashboard Loaded");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Reviews - JobQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7fb;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --accent-color: #e74c3c;
+            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background: var(--gradient);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ecf0f1 !important;
+        }
+
+        main {
+            margin-top: 120px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-select {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <!-- Include navbar from index.html -->
+    </nav>
+
+    <main class="container review-section">
+        <h2>Company Reviews</h2>
+        <select class="form-select" id="companySelect" onchange="filterReviews()">
+            <option value="">Select a Company</option>
+            <option>Tech Innovations</option>
+            <option>DataCorp</option>
+            <option>CloudNet</option>
+            <option>Green Solutions</option>
+            <option>FinTech Group</option>
+            <option>AutoTech</option>
+            <option>MedLife</option>
+            <option>EduTech</option>
+            <option>RetailCorp</option>
+            <option>CyberSec Inc.</option>
+        </select>
+        
+        <div id="reviewsList">
+            <script>
+                const reviews = [
+                    { company: "Tech Innovations", text: "Great work environment with lots of learning opportunities.", author: "John Doe", rating: 4.5 },
+                    { company: "DataCorp", text: "Flexible hours and supportive management.", author: "Jane Smith", rating: 4.0 },
+                    { company: "CloudNet", text: "Innovative projects and great growth potential.", author: "Sam Wilson", rating: 4.7 },
+                    { company: "Green Solutions", text: "Eco-friendly initiatives and great team culture.", author: "Lisa Brown", rating: 4.2 },
+                    { company: "FinTech Group", text: "Fast-paced environment with great benefits.", author: "Mike Davis", rating: 4.8 },
+                    { company: "AutoTech", text: "Great for tech enthusiasts in the automobile industry.", author: "Sarah Lee", rating: 4.1 },
+                    { company: "MedLife", text: "Supportive work culture with a focus on healthcare innovation.", author: "Robert King", rating: 4.6 },
+                    { company: "EduTech", text: "Amazing learning opportunities for freshers.", author: "Emily White", rating: 4.3 },
+                    { company: "RetailCorp", text: "Stable job security and growth opportunities.", author: "David Harris", rating: 4.0 },
+                    { company: "CyberSec Inc.", text: "Cutting-edge security research and strong leadership.", author: "Chris Evans", rating: 4.9 }
+                ];
+
+                function renderReviews(company = "") {
+                    const reviewsList = document.getElementById("reviewsList");
+                    reviewsList.innerHTML = "";
+                    const filteredReviews = company ? reviews.filter(r => r.company === company) : reviews;
+                    
+                    filteredReviews.forEach(review => {
+                        const reviewCard = document.createElement("div");
+                        reviewCard.className = "review-card card p-3";
+                        reviewCard.innerHTML = `
+                            <h5 class="card-title">${review.company}</h5>
+                            <p class="card-text">${review.text}</p>
+                            <p class="card-text"><em>By ${review.author}</em></p>
+                            <p class="card-text"><strong>Rating:</strong> <span class="text-warning">${review.rating}</span> ⭐</p>
+                        `;
+                        reviewsList.appendChild(reviewCard);
+                    });
+                }
+
+                function filterReviews() {
+                    const selectedCompany = document.getElementById("companySelect").value;
+                    renderReviews(selectedCompany);
+                }
+
+                document.addEventListener("DOMContentLoaded", () => {
+                    renderReviews();
+                });
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
